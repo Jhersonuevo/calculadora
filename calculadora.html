@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculadora</title>
+</head>
+<body bgcolor="bluesky">
+    <center>
+    <h1>HOLA BIENVENIDO A LA CALCULADORA </h1>
+    <img src="./imagenes/calculadora.webp" width="350" height="320">
+    </center>
+    <p><label>TIPO DE OPERADOR:
+    <select id="operador">
+    <option value="suma">Suma</option>
+    <option value="resta">Resta</option>
+    <option value="multiplicacion">Multiplicación</option>
+    <option value="division">División</option>
+</select>
+</label></p>
+
+<p><label for="numero1">Ingrese el primer número: <input type="text" id="numero1"></label></p>
+<p><label for="numero2">Ingrese el segundo número: <input type="text" id="numero2"></label></p>
+
+<p><button onclick="calcular()">Calcular</button></p>
+
+<script>
+    function calcular() {
+        const operador = document.getElementById("operador").value;
+        const numero1 = parseFloat(document.getElementById("numero1").value);
+        const numero2 = parseFloat(document.getElementById("numero2").value);
+
+        let resultado;
+        if (operador === "suma") {
+            resultado = numero1 + numero2;
+            signo = "+";
+        }
+        else if (operador === "resta") {
+            resultado = numero1 - numero2;
+            signo = "-";
+        } 
+        else if (operador === "multiplicacion") {
+            resultado = numero1 * numero2;
+            signo = "*";
+        } 
+        else if (operador === "division") {
+            if (numero2 === 0) {
+                resultado = "No se puede dividir por cero";
+            } 
+            else {
+                resultado = numero1 / numero2;
+                signo = "/";
+            }
+        }
+
+        alert("El resultado es: " + numero1 + " " + signo + " " + numero2  + " = " + resultado);
+    }
+</script>
+<p>Si quieres volver a leer la teoría dale click <a href="./index.html">aquí.</a></p>
+</body>
+</html>
